@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <SnowCommerce_CustomPaymentMethod>
+            <version>0.1.0</version>
+        </SnowCommerce_CustomPaymentMethod>
+    </modules>
+    <admin>
+        <routers>
+            <sc_custom_payment>
+                <use>admin</use>
+                <args>
+                    <module>SnowCommerce_CustomPaymentMethod</module>
+                    <frontName>sc_custom_payment</frontName>
+                </args>
+            </sc_custom_payment>
+        </routers>
+    </admin>
+    <global>
+        <models>
+            <sc_custom_payment>
+                <class>SnowCommerce_CustomPaymentMethod_Model</class>
+            </sc_custom_payment>
+        </models>
+        <blocks>
+            <sc_custom_payment>
+                <class>SnowCommerce_CustomPaymentMethod_Block</class>
+            </sc_custom_payment>
+        </blocks>
+        <helpers>
+            <sc_custom_payment>
+                <class>SnowCommerce_CustomPaymentMethod_Helper</class>
+            </sc_custom_payment>
+        </helpers>
+        <resources>
+            <sc_custom_payment_setup>
+                <setup>
+                    <module>SnowCommerce_CustomPaymentMethod</module>
+                </setup>
+            </sc_custom_payment_setup>
+        </resources>
+    </global>
+    <default>
+        <payment>
+            <sc_custom_payment> //алиас метода
+                <active>1</active>
+                <model>sc_custom_payment/pay</model> //название метода слэш название модели
+                <order_status>processing</order_status>
+                <title>Custom Payment Method</title> //название метода
+            </sc_custom_payment> //алиас метода
+        </payment>
+    </default>
+</config>
